@@ -48,6 +48,7 @@ cancel(@Param('id', ParseIntPipe) id: number) {
 }
 
 @Delete(':id/hard')
+@Roles(Role.ADMIN)
 @ApiOperation({ summary: 'Hard Delete: Remover agendamento definitivamente' })
 removeHard(@Param('id', ParseIntPipe) id: number) {
   return this.appointmentsService.removeHard(id);
