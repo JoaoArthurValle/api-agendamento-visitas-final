@@ -1,0 +1,142 @@
+{
+  "info": {
+    "name": "API Agendamento de Visitas",
+    "description": "Bateria de testes para a API de Agendamentos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Agendamentos",
+      "item": [
+        {
+          "name": "Listar Todos (findAll)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/appointments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments"
+              ]
+            },
+            "description": "Lista todos os agendamentos registrados no banco."
+          },
+          "response": []
+        },
+        {
+          "name": "Criar Agendamento (create)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_locador\": 1,\n  \"id_locatario\": 2,\n  \"id_imovel\": 101,\n  \"data\": \"2026-10-15T14:00:00.000Z\",\n  \"tipo\": \"VISITA\",\n  \"status\": \"SCHEDULED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/appointments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments"
+              ]
+            },
+            "description": "Cria um novo agendamento. Note que a data está definida para o futuro e dentro do horário comercial (ex: 14h)."
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Um (findOne)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/appointments/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "1"
+              ]
+            },
+            "description": "Busca um único agendamento pelo ID (Substitua o 1 pelo ID desejado)."
+          },
+          "response": []
+        },
+        {
+          "name": "Cancelar Agendamento (cancel)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/appointments/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "1"
+              ]
+            },
+            "description": "Cancela um agendamento existente pelo ID (Substitua o 1 pelo ID real criado no passo anterior)."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3004",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzgzMTI0MjAwLCJleHAiOjE4MTQ2ODE4MDB9.PbST9aRfHDXluTmbt6leOmvZIbga_lF2I-XweQkKd5w",
+      "type": "string"
+    }
+  ]
+}
