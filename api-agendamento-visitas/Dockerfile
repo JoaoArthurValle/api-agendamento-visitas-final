@@ -5,6 +5,7 @@ RUN apk add --no-cache openssl
 WORKDIR /app
 
 COPY package*.json ./
+COPY prisma.config.ts ./
 COPY prisma ./prisma/
 
 RUN npm install
