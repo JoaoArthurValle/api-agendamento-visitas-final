@@ -36,6 +36,9 @@ let AppointmentsController = class AppointmentsController {
     cancel(id) {
         return this.appointmentsService.cancel(id);
     }
+    removeHard(id) {
+        return this.appointmentsService.removeHard(id);
+    }
 };
 exports.AppointmentsController = AppointmentsController;
 __decorate([
@@ -66,6 +69,14 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], AppointmentsController.prototype, "cancel", null);
+__decorate([
+    (0, common_1.Delete)(':id/hard'),
+    (0, swagger_1.ApiOperation)({ summary: 'Hard Delete: Remover agendamento definitivamente' }),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], AppointmentsController.prototype, "removeHard", null);
 exports.AppointmentsController = AppointmentsController = __decorate([
     (0, swagger_1.ApiTags)('appointments'),
     (0, swagger_1.ApiBearerAuth)(),

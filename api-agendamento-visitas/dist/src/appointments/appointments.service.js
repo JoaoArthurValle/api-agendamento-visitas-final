@@ -136,6 +136,14 @@ let AppointmentsService = class AppointmentsService {
             },
         });
     }
+    async removeHard(id) {
+        await this.findOne(id);
+        return this.prisma.appointment.delete({
+            where: {
+                id_agendamento: id,
+            },
+        });
+    }
 };
 exports.AppointmentsService = AppointmentsService;
 exports.AppointmentsService = AppointmentsService = __decorate([

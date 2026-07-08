@@ -47,4 +47,15 @@ export declare class AppointmentsController {
         updatedAt: Date;
         id_agendamento: number;
     }>;
+    removeHard(id: number): Promise<{
+        id_locador: number | null;
+        id_locatario: number | null;
+        id_imovel: number | null;
+        data: Date;
+        tipo: string;
+        status: import(".prisma/client").$Enums.AppointmentStatus;
+        createdAt: Date;
+        updatedAt: Date;
+        id_agendamento: number;
+    }>;
 }
